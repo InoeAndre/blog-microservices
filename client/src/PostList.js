@@ -9,7 +9,9 @@ const PostList = () => {
         const response = await axios.get("http://localhost:4002/posts").catch(error => {
             console.log(error);
         });
-        setPosts(response.data);
+        if (response) {
+            setPosts(response.data);
+        }
     };
     useEffect(() => {
         fetchPosts();
